@@ -82,121 +82,158 @@ body{font-size:clamp(1.0625rem,0.98rem + 0.4vw,1.125rem);line-height:1.7;}
 <section id="i3jhhw" class="ll-section ll-section__grid"><div id="ieftiz" class="ll-container ll-container__grid"><p id="hv1jo" class="article-paragraph"><b id="is2xbf">Diese Seite bleibt nicht ewig online. Schau dir die Präsentation jetzt an und teile sie dann mit allen, die dir am Herzen liegen und die einen aussichtslosen Kampf gegen ihr Gewicht führen.</b><br id="iqyzyf"></p></div></section>
 
 <style>
-.fb-comments{background:#fff;max-width:100%;margin:20px auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-.fb-comments-header{font-size:16px;font-weight:700;color:#1c1e21;padding:12px 0;border-bottom:1px solid #dadde1;}
-.fb-comment{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #f0f0f0;position:relative;}
-.fb-comment.reply{margin-left:50px;}
-.fb-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;object-fit:cover;}
-.fb-body{flex:1;min-width:0;}
-.fb-name{font-size:13px;font-weight:600;color:#385898;margin:0 0 2px;}
-.fb-text{font-size:14px;color:#1c1e21;margin:0 0 6px;line-height:1.4;}
-.fb-meta{font-size:12px;color:#8e8e8e;margin:0;}
-.fb-meta span{cursor:pointer;}
-.fb-meta span:hover{text-decoration:underline;}
-.fb-reactions{position:absolute;right:0;top:12px;display:flex;align-items:center;gap:2px;}
-.fb-react-icon{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;}
-.fb-react-heart{background:#ed4956;color:#fff;}
-.fb-react-like{background:#1877f2;color:#fff;}
-.fb-react-count{font-size:13px;color:#8e8e8e;margin-left:2px;}
-.fb-closed{text-align:center;font-size:13px;color:#8e8e8e;padding:14px 0;border-top:1px solid #dadde1;margin-top:4px;}
+#fb-comments{font-family:"Segoe UI Historic","Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;width:100%;margin:auto;}
+#fb-comments .fb-heading{margin:2.125em 0 0.625em;font-size:1.1em;color:#555;font-weight:400;text-align:left;}
+#fb-comments .comments-container{display:flex;flex-direction:column;gap:1.25em;border:0.0625em solid #e9ebee;border-radius:1.25em;padding:1.25em 1.25em 0;}
+#fb-comments .comment{display:flex;align-items:flex-start;justify-content:flex-start;position:relative;width:100%;max-width:100%;gap:0.625em;}
+#fb-comments .comment.answer{margin-left:3.625em;max-width:calc(100% - 3.625em);margin-bottom:0.75em;}
+#fb-comments .comment.answer+.answer{margin-top:-0.75em;}
+#fb-comments .comment .user-avatar{max-width:3em;max-height:3em;border-radius:1.5625em;object-fit:cover;}
+#fb-comments .comment .comment-data{width:100%;}
+#fb-comments .comment .comment-data .user{font-weight:400;color:#050505;border-radius:0.75em;background-color:#f0f2f5;padding:0.375em 0.75em 0.75em;}
+#fb-comments .comment .comment-data .user .name{margin:0;color:#365899;text-decoration:none;font-weight:700;font-size:16px;cursor:pointer;max-width:max-content;}
+#fb-comments .comment .comment-data .user .text{margin:0;font-weight:400;font-size:16px;color:#050505;width:fit-content;text-align:left;}
+#fb-comments .comment .comment-data .buttons{margin:0.125em 0 0 0.75em;display:flex;align-items:center;justify-content:flex-start;gap:0.3125em;}
+#fb-comments .comment .comment-data .buttons time,#fb-comments .comment .comment-data .buttons like,#fb-comments .comment .comment-data .buttons answer,#fb-comments .comment .comment-data .buttons span{font-size:0.80em;color:#888;user-select:none;}
+#fb-comments .comment .comment-data .buttons like,#fb-comments .comment .comment-data .buttons answer{font-weight:600;cursor:pointer;}
+#fb-comments .comment likes{position:absolute;bottom:0;right:0;background-color:#fff;border:0.125em solid #eaebef;display:flex;align-items:center;font-size:0.875em;line-height:1;color:#888;border-radius:6.25em;padding:0.0625em 0.25em 0.0625em 0;}
+#fb-comments .comments-closed{font-size:0.875em;font-weight:600;text-align:center;margin:0.9375em 0 5px;color:#555;}
+@media(min-width:576px){#fb-comments{font-size:16px;}}
 </style>
-<section id="comments-section" class="ll-section" style="background:#f5f5f5;padding:24px 16px;">
-<div class="fb-comments">
-<div class="fb-comments-header">36.158 Kommentare</div>
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar1.jpg" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Amelie Schneider</p>
-<p class="fb-text">Ich dachte zuerst, das waere wieder eines dieser langweiligen Videos. Aber der Kaffee-Zitronen-Trick ist echt genial! Endlich etwas, das wirklich FUNKTIONIERT.</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 2 Std.</p>
-</div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">23</span></div>
-</div>
+<div id="fb-comments">
+<p class="fb-heading">36.158 Kommentare</p>
+<div class="comments-container">
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar2.png" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Katharina Muller</p>
-<p class="fb-text">Dieser Kaffee-Zitronen-Trick ist einfach grossartig &#128079;</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 35 Min.</p>
+<div class="comment" data-comment-id="1">
+<img class="user-avatar" src="ps6-files/images/comments/avatar1.jpg" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Amelie Schneider</p>
+<p class="text">Ich dachte zuerst, das waere wieder eines dieser langweiligen Videos. Aber der Kaffee-Zitronen-Trick ist echt genial! Endlich etwas, das wirklich FUNKTIONIERT.</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">17</span></div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>2 Std.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 23</likes>
 </div>
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar3.jpg" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Victoria Meier</p>
-<p class="fb-text">Es geht nicht nur um Zahlen auf der Waage. Ich fuehle mich endlich wieder wohl in meinem Koerper. Ein Gefuehl, das ich ewig vermisst habe.</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 7 Min.</p>
+<div class="comment answer" data-comment-id="1a">
+<img class="user-avatar" src="ps6-files/images/comments/avatar2.png" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Katharina Muller</p>
+<p class="text">Dieser Kaffee-Zitronen-Trick ist einfach grossartig &#128079;</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">11</span></div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>35 Min.</time>
 </div>
-
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar4.jpg" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Sophie Becker</p>
-<p class="fb-text">Haha, bei mir war's genauso! Mein Freund dachte, ich waere krank, weil ich ploetzlich nur noch die Haelfte gegessen habe &#128514;</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 5 Min.</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">6</span></div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 17</likes>
 </div>
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar5.png" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Susanne Lange</p>
-<p class="fb-text">Ich weiss nicht ... ist das echt oder nur wieder ein Werbetrick?</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 1 Std.</p>
+<div class="comment answer" data-comment-id="1b">
+<img class="user-avatar" src="ps6-files/images/comments/avatar3.jpg" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Victoria Meier</p>
+<p class="text">Es geht nicht nur um Zahlen auf der Waage. Ich fuehle mich endlich wieder wohl in meinem Koerper. Ein Gefuehl, das ich ewig vermisst habe.</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">54</span></div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>7 Min.</time>
 </div>
-
-<div class="fb-comment reply">
-<img src="ps6-files/images/comments/avatar6.jpg" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Alina Peters</p>
-<p class="fb-text">Susanne, ich war auch super skeptisch, aber es ist echt! Probier es ein paar Tage aus. Der Kaffee-Zitronen-Trick funktioniert wirklich. Ich war schockiert, wie schnell sich etwas veraendert hat!</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 1 Std.</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">76</span></div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 11</likes>
 </div>
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar7.webp" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Annika Weber</p>
-<p class="fb-text">Bei all den Online-Abzocken ist es selten, etwas zu finden, das wirklich hilft. Dieser Trick verdient Aufmerksamkeit &#128079;&#128079;</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 19 Min.</p>
+<div class="comment answer" data-comment-id="1c">
+<img class="user-avatar" src="ps6-files/images/comments/avatar4.jpg" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Sophie Becker</p>
+<p class="text">Haha, bei mir war's genauso! Mein Freund dachte, ich waere krank, weil ich ploetzlich nur noch die Haelfte gegessen habe &#128514;</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">35</span></div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>5 Min.</time>
 </div>
-
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar8.webp" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Rebecca Vandenberg</p>
-<p class="fb-text">Ehrlich, ich habe alles ausprobiert. Methoden, Tipps, Strategien. Aber nichts hat so gut funktioniert wie dieser Kaffee-Zitronen-Trick. Ich fuehle mich leichter, energiegeladener und einfach lebendiger. Danke! &#129392;</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 2 Std.</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">67</span></div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 6</likes>
 </div>
 
-<div class="fb-comment">
-<img src="ps6-files/images/comments/avatar9.webp" alt="" class="fb-avatar">
-<div class="fb-body">
-<p class="fb-name">Carolin Albrecht</p>
-<p class="fb-text">Hat das sonst noch jemand ausprobiert oder bin ich die Einzige, die an solche Internet-Wunder glaubt? &#128514;</p>
-<p class="fb-meta"><span>Gefaellt mir</span> · <span>Antworten</span> · 2 Std.</p>
+<div class="comment" data-comment-id="3">
+<img class="user-avatar" src="ps6-files/images/comments/avatar5.png" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Susanne Lange</p>
+<p class="text">Ich weiss nicht ... ist das echt oder nur wieder ein Werbetrick?</p>
 </div>
-<div class="fb-reactions"><span class="fb-react-icon fb-react-heart">&#10084;</span><span class="fb-react-icon fb-react-like">&#128077;</span><span class="fb-react-count">87</span></div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>1 Std.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 54</likes>
 </div>
 
-<div class="fb-closed">Dieser Beitrag nimmt keine neuen Kommentare mehr entgegen.</div>
+<div class="comment answer" data-comment-id="3a">
+<img class="user-avatar" src="ps6-files/images/comments/avatar6.jpg" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Alina Peters</p>
+<p class="text">Susanne, ich war auch super skeptisch, aber es ist echt! Probier es ein paar Tage aus. Der Kaffee-Zitronen-Trick funktioniert wirklich. Ich war schockiert, wie schnell sich etwas veraendert hat!</p>
 </div>
-</section>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>1 Std.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 76</likes>
+</div>
+
+<div class="comment" data-comment-id="5">
+<img class="user-avatar" src="ps6-files/images/comments/avatar7.webp" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Annika Weber</p>
+<p class="text">Bei all den Online-Abzocken ist es selten, etwas zu finden, das wirklich hilft. Dieser Trick verdient Aufmerksamkeit &#128079;&#128079;</p>
+</div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>19 Min.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 35</likes>
+</div>
+
+<div class="comment" data-comment-id="6">
+<img class="user-avatar" src="ps6-files/images/comments/avatar8.webp" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Rebecca Vandenberg</p>
+<p class="text">Ehrlich, ich habe alles ausprobiert. Methoden, Tipps, Strategien. Aber nichts hat so gut funktioniert wie dieser Kaffee-Zitronen-Trick. Ich fuehle mich leichter, energiegeladener und einfach lebendiger. Danke! &#129392;</p>
+</div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>2 Std.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 67</likes>
+</div>
+
+<div class="comment" data-comment-id="7">
+<img class="user-avatar" src="ps6-files/images/comments/avatar9.webp" alt="">
+<div class="comment-data">
+<div class="user">
+<p class="name">Carolin Albrecht</p>
+<p class="text">Hat das sonst noch jemand ausprobiert oder bin ich die Einzige, die an solche Internet-Wunder glaubt? &#128514;</p>
+</div>
+<div class="buttons">
+<like>Gefaellt mir</like><span>·</span><answer>Antworten</answer><span>·</span><time>2 Std.</time>
+</div>
+</div>
+<likes><img src="ps6-files/images/comments/amei.png" style="max-height:20px;"> 10 <img src="ps6-files/images/comments/like.webp" style="max-height:20px;"> 87</likes>
+</div>
+
+<p class="comments-closed">Dieser Beitrag nimmt keine neuen Kommentare mehr entgegen.</p>
+</div>
+</div>
 
 <section id="ds1sc" class="ll-section disclaimer-section"><div id="ds1cn" class="ll-container disclaimer-container"><p id="ds1t2" class="disclaimer-text"></p><div id="iqkhrg"><span id="izirq1">Unsere Ratgeber und Produkte sind nicht dazu bestimmt, Erkrankungen zu behandeln, zu heilen oder diesen vorzubeugen. Wenden Sie sich vor Beginn einer neuen Diät oder der Einnahme von Nahrungsergänzungsmitteln an Ihren Arzt.<br id="iekefr">Referenzen:<br id="ibhk58"><br id="ihz14b">(1) https://www.health.harvard.edu/diet-and-weight-loss/does-metabolism-matter-in-weight-loss<br id="ix094d">(2) https://www.healthline.com/nutrition/coffee-increase-metabolism#TOC_TITLE_HDR_4<br id="id44zn">(3) https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6683100/<br id="i8vnq4">(4) https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2943088/<br id="i5iodp">(5) https://www.hsph.harvard.edu/news/hsph-in-the-news/four-cups-of-coffee-modest-loss-of-body-fat/<br id="i2bip3"><br id="ih682b">Das Angebot stellt keine medizinische Beratung dar. Das Angebot ist kein Ersatz für Medikamente oder andere Behandlungen, die von einem Arzt oder einem medizinischen Dienstleister verschrieben werden. Benutzer sollten vor Beginn einer Behandlung einen Arzt konsultieren. Jede Person ist einzigartig und die Ergebnisse können variieren.</span></div><br id="i6pclt"><br id="ioy019"><br id="ilf30r"><br id="ishrtk"><br id="i7srdn"><p id="i07okk"></p></div></section>
 
