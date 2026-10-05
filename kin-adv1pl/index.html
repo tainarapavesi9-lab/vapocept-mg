@@ -235,6 +235,10 @@
         margin: 9px 0;
       }
 
+      .kinzeno-sticky-bar {
+        display: none;
+      }
+
       @media (max-width: 640px) {
         .kinzeno-feature-grid {
           grid-template-columns: 1fr;
@@ -247,6 +251,54 @@
         .kinzeno-cta {
           font-size: 17px;
         }
+
+        .kinzeno-sticky-bar {
+          display: block;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 9999;
+          background: #fff;
+          padding: 10px 16px;
+          box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+
+        .kinzeno-sticky-bar .kinzeno-cta {
+          width: 100%;
+          padding: 14px 16px;
+          font-size: 16px;
+          margin: 0;
+        }
+
+        main, footer {
+          padding-bottom: 72px;
+        }
+      }
+
+      .kinzeno-urgency {
+        display: block;
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #c1121f;
+        text-transform: none;
+      }
+
+      .kinzeno-early-cta {
+        margin: 22px 0 10px;
+        padding: 18px 20px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+        border: 2px solid #ff9d00;
+        text-align: center;
+      }
+
+      .kinzeno-early-cta p {
+        margin: 0 0 12px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #333;
       }
     </style>
 
@@ -339,6 +391,11 @@
         pracuje inaczej, i szuka odpowiedzi. Zebraliśmy je w jednym miejscu:
         co mówi się o diecie, ruchu i prostym rytuale masażu, który robi
         ostatnio w Polsce wyjątkowo dużo szumu.
+      </div>
+
+      <div class="kinzeno-early-cta">
+        <p>Chcesz od razu sprawdzić, o czym mowa? Kliknij i zobacz ofertę.</p>
+        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/" style="font-size:17px">Sprawdź Kinzeno na oficjalnej stronie<span class="kinzeno-urgency">Dostępność i cena mogą się zmieniać</span></a>
       </div>
     </div>
 
@@ -475,7 +532,7 @@
       <img src="images/kinzeno-product.png" alt="Kinzeno z magnetycznym aplikatorem rolkowym" style="width: 100%; max-width: 430px; display: block; margin: 18px auto" loading="lazy">
 
       <div class="kinzeno-cta-wrap">
-        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź ofertę na oficjalnej stronie</a>
+        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź aktualną ofertę i dostępność<span class="kinzeno-urgency">Produkt dostępny tylko online</span></a>
       </div>
 
       <section>
@@ -560,7 +617,7 @@
       </section>
 
       <div class="kinzeno-cta-wrap">
-        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź ofertę na oficjalnej stronie</a>
+        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź skład i aktualną cenę Kinzeno<span class="kinzeno-urgency">Wysyłka do Polski</span></a>
       </div>
 
       <h2 class="editorial-heading">
@@ -759,7 +816,7 @@
       </div>
 
       <div class="kinzeno-cta-wrap">
-        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź ofertę na oficjalnej stronie</a>
+        <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Zamów Kinzeno zanim cena się zmieni<span class="kinzeno-urgency">Oficjalna strona sprzedawcy</span></a>
       </div>
 
       <h2 class="editorial-heading">
@@ -970,7 +1027,7 @@
       <br>
 
       <div class="kinzeno-cta-wrap">
-        <a id="main-order" class="kinzeno-cta gooffer" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź ofertę na oficjalnej stronie</a>
+        <a id="main-order" class="kinzeno-cta gooffer" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Tak, chcę sprawdzić ofertę Kinzeno<span class="kinzeno-urgency">Kliknij i zobacz aktualną cenę</span></a>
       </div>
     </main>
 
@@ -1106,6 +1163,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="kinzeno-sticky-bar">
+      <a class="kinzeno-cta" href="https://www.knownwalk.com/2JCZKZ1X/2488MPCT/">Sprawdź ofertę Kinzeno</a>
     </div>
 
     <script async="">
