@@ -271,28 +271,87 @@
     <script src="jquery-3.7.1.min.js"></script>
     
     
-  <style>footer p,footer .clinical-footer,footer rekv{box-sizing:border-box;width:100%;max-width:100%;padding-left:20px;padding-right:20px;text-align:center;}</style></head>
+  <style>footer p,footer .clinical-footer,footer rekv{box-sizing:border-box;width:100%;max-width:100%;padding-left:20px;padding-right:20px;text-align:center;}</style><style>
+/* ---- PULS DNIA ---- */
+:root{--pd-red:#d21f2b;--pd-ink:#111;--pd-muted:#777;--pd-line:#ececec;--pd-soft:#fff4f4;--pd-radius:5px;}
+.pd-icon{width:18px;height:18px;display:inline-block;vertical-align:-3px;}
+.pd-icon.fill{fill:currentColor;}.pd-icon.stroke{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.pd-brandbar{display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:3px solid var(--pd-red);background:#fff;max-width:780px;margin:0 auto;}
+.pd-logo{display:flex;align-items:center;gap:10px;}
+.pd-logo .pd-mk{width:40px;height:40px;background:var(--pd-red);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.pd-logo .pd-mk svg{width:26px;height:26px;}
+.pd-logo .pd-wm{font-weight:900;font-size:24px;letter-spacing:-.02em;color:var(--pd-ink);line-height:1;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-logo .pd-wm em{color:var(--pd-red);font-style:normal;}
+.pd-logo .pd-tag{display:block;font-size:9.5px;letter-spacing:.22em;color:#999;font-weight:700;margin-top:3px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-nav{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:13px;font-weight:700;color:#333;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-nav .pd-ic{color:var(--pd-red);}
+.pd-breaking{display:flex;align-items:center;gap:10px;padding:8px 20px;font-size:13.5px;font-weight:700;background:var(--pd-soft);color:var(--pd-ink);border-bottom:1px solid #f3dcdc;max-width:780px;margin:0 auto;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-breaking .pd-live{color:var(--pd-red);}.pd-breaking b{font-variant-numeric:tabular-nums;}
+.pd-sponsor{display:inline-block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#8a8a8a;border:1px solid #e3e3e3;border-radius:3px;padding:3px 9px;font-weight:600;margin-bottom:14px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-verify{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--pd-soft);border:1px solid #f3dcdc;border-radius:var(--pd-radius);padding:11px 14px;margin:16px auto;max-width:740px;}
+.pd-verify .pd-v{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#333;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-verify .pd-v .pd-icon{color:var(--pd-red);}
+.pd-source{border-left:4px solid var(--pd-red);background:#faf7f7;padding:12px 16px;border-radius:0 var(--pd-radius) var(--pd-radius) 0;font-size:14px;color:#444;margin:18px 0;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-source .pd-lbl{font-weight:800;color:var(--pd-red);text-transform:uppercase;font-size:11px;letter-spacing:.06em;}
+.pd-react{border:1px solid var(--pd-line);border-radius:var(--pd-radius);padding:16px;text-align:center;margin:24px 0;}
+.pd-react .pd-q{font-weight:800;color:var(--pd-ink);margin-bottom:12px;font-size:16px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-react .pd-opts{display:inline-flex;gap:10px;}
+.pd-react .pd-opt{display:inline-flex;align-items:center;gap:8px;border:1.5px solid #e2e2e2;border-radius:24px;padding:9px 18px;font-weight:700;color:#444;font-size:14px;cursor:pointer;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-react .pd-opt.pd-yes{border-color:var(--pd-red);color:var(--pd-red);}
+.pd-author{display:flex;gap:14px;background:#faf7f7;border:1px solid var(--pd-line);border-radius:var(--pd-radius);padding:16px;margin:24px 0;}
+.pd-author .pd-nm{font-weight:800;color:var(--pd-ink);font-size:15px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-author .pd-cr{font-size:12.5px;color:var(--pd-red);font-weight:700;margin:2px 0 7px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-author .pd-bio{font-size:13.5px;color:#555;line-height:1.5;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-also h3{font-size:13px!important;text-transform:uppercase;letter-spacing:.06em;color:var(--pd-red)!important;margin-bottom:12px;border-bottom:2px solid var(--pd-red);display:inline-block;padding-bottom:4px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-also .pd-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--pd-line);}
+.pd-also .pd-th{width:92px;height:62px;border-radius:4px;background:linear-gradient(135deg,#dfe6ee,#c7d2dd);flex:0 0 92px;}
+.pd-also .pd-tt{font-weight:700;color:var(--pd-ink);font-size:14.5px;line-height:1.35;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-also .pd-mt{font-size:11.5px;color:var(--pd-muted);margin-top:5px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-trust{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;background:#faf7f7;border:1px dashed #e0c4c4;border-radius:var(--pd-radius);padding:16px;margin:12px 0;}
+.pd-trust .pd-b{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#333;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-trust .pd-b .pd-icon{color:var(--pd-red);}
+.pd-foot{background:#0f0f10;color:#aeb2b8;font-size:12px;line-height:1.6;padding:20px 22px;max-width:780px;margin:0 auto;}
+.pd-foot .pd-logo .pd-wm{color:#fff;font-size:18px;}.pd-foot .pd-logo .pd-mk{width:30px;height:30px;}.pd-foot .pd-logo .pd-mk svg{width:19px;height:19px;}
+.pd-foot .pd-disc{margin-top:10px;border-top:1px solid #272727;padding-top:10px;}
+.pd-foot a{color:#aeb2b8;text-decoration:none;}.pd-foot a:hover{text-decoration:underline;}
+.pd-byline{display:flex;align-items:center;gap:11px;margin:14px 0;}
+.pd-avatar{border-radius:50%;flex:0 0 auto;}
+.pd-who .pd-name{font-weight:700;color:var(--pd-ink);font-size:15px;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-who .pd-time{font-size:13px;color:var(--pd-muted);font-variant-numeric:tabular-nums;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-social{display:flex;align-items:center;gap:8px;margin:16px 0 0;padding:12px 0;border-top:1px solid var(--pd-line);border-bottom:1px solid var(--pd-line);flex-wrap:wrap;}
+.pd-stat{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:#444;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;}
+.pd-stat .pd-n{font-variant-numeric:tabular-nums;}.pd-stat.pd-like{color:var(--pd-red);}
+.pd-social .pd-sep{flex:1;}
+@media(max-width:640px){.pd-nav{display:none;}.pd-breaking{font-size:12.5px;}.pd-verify{gap:10px;}.pd-also .pd-th{width:72px;height:50px;flex:0 0 72px;}}
+</style>
+</head>
 
   <body>
-    <div class="clinical-topbar">
-      Reportaż specjalny · Zdrowie i Społeczeństwo
-    </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="pd-like"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></g>
+  <g id="pd-comment"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9 8.4 8.4 0 0 1 12.5 3h.5a8.48 8.48 0 0 1 8 8z"/></g>
+  <g id="pd-save"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></g>
+  <g id="pd-search"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></g>
+  <g id="pd-check"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14.2 9 11.2"/></g>
+  <g id="pd-clock"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></g>
+  <g id="pd-lock"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g>
+  <g id="pd-guard"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></g>
+  <g id="pd-pulse"><polyline points="2,12 7,12 10,4 14,20 17,12 22,12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</defs></svg>
 
-    <div class="masthead">
-      <div class="masthead-inner">
-        <div class="masthead-logo">
-          <span class="masthead-logo-icon">+</span>
-          <span>ZdrowieInfo Polska</span>
-        </div>
-        <div class="masthead-tagline">Reportaż ze świata służby zdrowia</div>
-      </div>
+    <div class="pd-brandbar">
+      <span class="pd-logo"><span class="pd-mk"><svg viewBox="0 0 24 24"><use href="#pd-pulse"/></svg></span>
+        <span><span class="pd-wm">PULS<em>DNIA</em></span><span class="pd-tag">ZDROWIE &middot; STYL ŻYCIA</span></span></span>
+      <span class="pd-nav"><span>Kraj</span><span>Zdrowie</span><span>Poradniki</span><svg class="pd-icon stroke pd-ic" viewBox="0 0 24 24"><use href="#pd-search"/></svg></span>
     </div>
+    <div class="pd-breaking"><span class="pd-live">&#9679;</span> <b id="pd-clk">14:20</b> Nowe zalecenia dla seniorów w sprawie stawów</div>
 
     <header>
       <div class="bg-image"></div>
     </header>
     <div class="text-container"></div>
     <div class="h1-bg split">
+      <span class="pd-sponsor">Artykuł sponsorowany</span>
       <h1 class="title_h1">
         <span class="head-one-part">«KIEDY NIE MOŻESZ JUŻ CHODZIĆ, RODZINA O TOBIE ZAPOMINA.»</span>
         <span class="head-two-part">MŁODY LEKARZ, KTÓRY JEŹDZI PO DOMACH OPIEKI I PRZYWRACA PORZUCONYM
@@ -317,10 +376,28 @@
         którą opracował wspólnie z centrum badawczym, przywróciła im sprawność
         ruchową, bez operacji i bez tabletek na całe życie.
       </div>
+
+      <div class="pd-byline">
+        <svg class="pd-avatar" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#d21f2b"/><circle cx="22" cy="17" r="7.5" fill="#fff"/><path d="M8 42c1-8.5 7.5-12.5 14-12.5S35 33.5 36 42z" fill="#fff"/></svg>
+        <div class="pd-who"><div class="pd-name">Dr Marek Kowalski</div><div class="pd-time"><script>dtime_nums(-1);</script> &middot; Aktualizacja: 2 godziny temu</div></div>
+      </div>
+
+      <div class="pd-social">
+        <span class="pd-stat pd-like"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-like"/></svg> <span class="pd-n">18&nbsp;642</span></span>
+        <span class="pd-stat"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-comment"/></svg> <span class="pd-n">1&nbsp;204</span></span>
+        <span class="pd-stat"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-save"/></svg></span>
+        <span class="pd-sep"></span>
+      </div>
+    </div>
+
+    <div class="pd-verify">
+      <span class="pd-v"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-check"/></svg> Treść zweryfikowana</span>
+      <span class="pd-v"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-clock"/></svg> Aktualizacja: 2 godziny temu</span>
+      <span class="pd-v"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-comment"/></svg> Czas czytania: 4 min</span>
     </div>
 
     <main>
-      <img alt="Dr Marek Kowalski bada kolano pacjentki w domu opieki" src="images/1778142925769-2045c9ea-f00c-48ab-ae5d-6e56aec020f0.jpg" style="margin-bottom: 14px; margin-top: 0" loading="lazy">
+      <img alt="Dr Marek Kowalski bada kolano pacjentki w domu opieki" src="images/1778142925769-2045c9ea-f00c-48ab-ae5d-6e56aec020f0.jpg" style="margin-bottom: 14px; margin-top: 0">
 
       <p>
         Przyjechaliśmy do Radomia we wtorkowy poranek. Droga do domu opieki
@@ -367,7 +444,7 @@
       </h2>
 
       <div class="doc-block">
-        <img alt="Dr Marek Kowalski" src="images/1778142925769-8d31ed89-cd31-449a-8c51-6ff1a0bfb48e.jpg" loading="lazy">
+        <img alt="Dr Marek Kowalski" src="images/1778142925769-8d31ed89-cd31-449a-8c51-6ff1a0bfb48e.jpg">
         <p>
           Dr Marek Kowalski: «Pierwszy raz wszedłem do domu opieki jako wolontariusz, miałem 26 lat. I nie byłem przygotowany na to, co
           zobaczyłem. 76-letnia kobieta, pani Róża, siedziała na skraju łóżka z
@@ -432,7 +509,7 @@
       </p>
 
       <figure>
-        <img class="img-card" src="images/1778142925769-a94978b4-3738-4aeb-950e-312b652009ac.jpg" loading="lazy">
+        <img class="img-card" src="images/1778142925769-a94978b4-3738-4aeb-950e-312b652009ac.jpg">
         <figcaption>
           Kolana pani Marii, 74 lata, dom opieki w woj. małopolskim. Artroza 3.
           stopnia, chrząstka prawie całkowicie zniszczona. Od 5 miesięcy nie
@@ -488,7 +565,7 @@
       </div>
 
       <figure class="Figure" style="text-align: center">
-        <img src="images/1778142925769-057465eb-7a53-45e0-ba84-1b9038913030.jpg" style="margin: 0 auto" loading="lazy">
+        <img src="images/1778142925769-057465eb-7a53-45e0-ba84-1b9038913030.jpg" style="margin: 0 auto">
         <figcaption>
           <b>Po lewej: zdrowy staw z nienaruszoną chrząstką i wystarczającą
             ilością płynu stawowego. Po prawej: zniszczony staw, chrząstka
@@ -510,6 +587,8 @@
         nigdy nie zaproponował prawdziwej alternatywy.
       </p>
 
+      <div class="pd-source"><span class="pd-lbl">Źródło</span><br>Polskie Towarzystwo Ortopedyczne i Traumatologiczne, raport 2025: długotrwałe stosowanie NLPZ u seniorów zwiększa ryzyko powikłań żołądkowo-jelitowych o 60%.</div>
+
       <h2>
         Historie, które zmieniły moje życie, i które zmienią sposób, w jaki
         patrzysz na starość
@@ -524,7 +603,7 @@
       </p>
 
       <figure class="cap-bold">
-        <img class="img-card" src="images/1778142925769-ab7d1e11-8df2-44ee-b472-2a3be72bb7b3.jpg" loading="lazy">
+        <img class="img-card" src="images/1778142925769-ab7d1e11-8df2-44ee-b472-2a3be72bb7b3.jpg">
         <figcaption>
           Pani Halina, 77 lat. Reumatoidalne zapalenie stawów obu dłoni, nie
           jest w stanie trzymać filiżanki ani samodzielnie się ubrać. Córka
@@ -542,7 +621,7 @@
       </div>
 
       <figure class="cap-bold">
-        <img class="img-card" src="images/1778142925769-980707f6-6c1c-40ec-96a5-61c8c9dcde54.jpg" loading="lazy">
+        <img class="img-card" src="images/1778142925769-980707f6-6c1c-40ec-96a5-61c8c9dcde54.jpg">
         <figcaption>
           Pan Ryszard, 75 lat. Przepuklina dysku L4-L5, obustronna koksartroza.
           Od 8 miesięcy nie wstaje z łóżka. «Powiedzieli, że jestem za stary na
@@ -682,6 +761,14 @@
         głęboko i nie aktywuje regeneracji chrząstki.
       </p>
 
+      <div class="pd-react">
+        <div class="pd-q">Czy ten artykuł był pomocny?</div>
+        <div class="pd-opts">
+          <span class="pd-opt pd-yes"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-like"/></svg> Tak &middot; 3 418</span>
+          <span class="pd-opt">Nie &middot; 112</span>
+        </div>
+      </div>
+
       <h2 class="editorial-heading">
         Tak powstał <a class="product-link" href="https://zmx1l.doctorintr.com/l">RelieFlex</a>, maść, w której kluczowe składniki połączono w starannie dobranych
         proporcjach
@@ -696,7 +783,7 @@
         uboczne tabletek.
       </p>
 
-      <img src="images/relieflex-product.png" alt="Maść RelieFlex" style="width: 100%; max-width: 360px; display: block; margin: 18px auto" loading="lazy">
+      <img src="images/relieflex-product.png" alt="Maść RelieFlex" style="width: 100%; max-width: 360px; display: block; margin: 18px auto">
 
       <div class="kinzeno-cta-wrap">
         <a class="kinzeno-cta" href="https://zmx1l.doctorintr.com/l">Zamów ze zniżką 50%, płatność przy odbiorze</a>
@@ -878,7 +965,7 @@
       </p>
 
       <div class="gray-bg rev-block">
-        <img class="img-card2" src="images/1778142925769-b234c916-2418-43cd-a09b-52da3b198c19.jpg" loading="lazy">
+        <img class="img-card2" src="images/1778142925769-b234c916-2418-43cd-a09b-52da3b198c19.jpg">
         <p>
           «Nie wierzyłam, że kiedykolwiek jeszcze będę mogła chodzić. Moje
           kolana były tak opuchnięte, że nie mogłam ich zgiąć. Pielęgniarki woziły mnie po pokoju na wózku inwalidzkim. Rano budziłam się i przez godzinę nie
@@ -918,7 +1005,7 @@
       </p>
 
       <div class="gray-bg rev-block">
-        <img class="img-card2" src="images/1778142925769-f6ae7d5d-d93a-42f5-8684-d3c285fbc8bf.jpg" loading="lazy">
+        <img class="img-card2" src="images/1778142925769-f6ae7d5d-d93a-42f5-8684-d3c285fbc8bf.jpg">
         <p>
           «Przez 30 lat byłem murarzem. Plecy odmówiły posłuszeństwa w wieku 54
           lat, dwie przepukliny dysku i rwa kulszowa. Nie mogłem ani stać, ani
@@ -983,7 +1070,7 @@
       </center>
 
       <figure>
-        <img src="images/1778142925769-baf151ad-77dc-450d-9a89-3293efafacfa.jpg" loading="lazy">
+        <img src="images/1778142925769-baf151ad-77dc-450d-9a89-3293efafacfa.jpg">
         <figcaption>
           Mężczyzna, 65 lat. Artroza 3. stopnia w obu kolanach, nie mógł
           wchodzić po schodach.
@@ -993,7 +1080,7 @@
       </figure>
 
       <figure>
-        <img class="img-card" src="images/1778142925768-f19f7f66-3e45-449a-87f2-78884ec5e6e1.jpg" loading="lazy">
+        <img class="img-card" src="images/1778142925768-f19f7f66-3e45-449a-87f2-78884ec5e6e1.jpg">
         <figcaption>
           Kobieta, 58 lat. Przewlekły ból pleców i przepuklina L5-S1.
           <span><a class="product-link" href="https://zmx1l.doctorintr.com/l">RelieFlex</a></span>
@@ -1002,7 +1089,7 @@
       </figure>
 
       <figure>
-        <img class="img-card" src="images/1778142925768-7d23b447-1714-413e-b3dd-921918111aa3.jpg" loading="lazy">
+        <img class="img-card" src="images/1778142925768-7d23b447-1714-413e-b3dd-921918111aa3.jpg">
         <figcaption>
           Kobieta, 72 lata. Ciężkie reumatoidalne zapalenie stawów palców, nie
           mogła trzymać filiżanki.
@@ -1012,7 +1099,7 @@
       </figure>
 
       <figure>
-        <img class="img-card" src="images/3.png" loading="lazy">
+        <img class="img-card" src="images/3.png">
         <figcaption>
           Mężczyzna, 70 lat. Zaawansowana koksartroza, chodził tylko z
           chodzikiem.
@@ -1170,7 +1257,7 @@
           width: 100%;
           margin-top: 24px;
           margin-bottom: 20px;
-        " loading="lazy">
+        ">
 
       <p><b>Dr Marek Kowalski:</b></p>
 
@@ -1256,6 +1343,15 @@
           nie zapomnieliście.</b>
       </p>
 
+      <div class="pd-author">
+        <svg class="pd-avatar" width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#d21f2b"/><circle cx="28" cy="22" r="9.5" fill="#fff"/><path d="M10 54c1.5-11 9.5-16 18-16s16.5 5 18 16z" fill="#fff"/></svg>
+        <div>
+          <div class="pd-nm">Dr Marek Kowalski</div>
+          <div class="pd-cr">Autor &middot; redakcja Zdrowie</div>
+          <div class="pd-bio">Lekarz specjalizujący się w rehabilitacji stawów, od czterech lat pracuje jako wolontariusz w domach opieki w całej Polsce. Autor programu wsparcia seniorów z chorobami stawów.</div>
+        </div>
+      </div>
+
       <p class="pachino-ramka key-highlight">
         <span class="ramka-title">Aktualizacja:
           <span>
@@ -1271,7 +1367,7 @@
       </p>
 
       <center>
-        <img src="images/relieflex-product.png" style="max-width: 200px; width: 100%" loading="lazy">
+        <img src="images/relieflex-product.png" style="max-width: 200px; width: 100%">
       </center>
       <br>
 
@@ -1288,8 +1384,21 @@
         <a id="main-order" class="kinzeno-cta gooffer" href="https://zmx1l.doctorintr.com/l">Zamów ze zniżką 50%, płatność przy odbiorze</a>
       </div>
 
+      <div class="pd-trust">
+        <span class="pd-b"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-lock"/></svg> Bezpieczna płatność</span>
+        <span class="pd-b"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-guard"/></svg> Gwarancja zwrotu</span>
+        <span class="pd-b"><svg class="pd-icon stroke" viewBox="0 0 24 24"><use href="#pd-check"/></svg> Wysyłka 24h</span>
+      </div>
+
       <span id="form"></span>
       <span id="oneform"></span>
+      <div class="pd-also" style="margin:24px 0">
+        <h3>Przeczytaj także</h3>
+        <div class="pd-row"><span class="pd-th"></span><div><div class="pd-tt">Seniorzy w domach opieki: jak odzyskać sprawność stawów po 70. roku życia</div><div class="pd-mt">Zdrowie &middot; 1 dzień temu</div></div></div>
+        <div class="pd-row"><span class="pd-th"></span><div><div class="pd-tt">Lekarze ostrzegają: tabletki przeciwzapalne niszczą żołądek i nerki</div><div class="pd-mt">Zdrowie &middot; 2 dni temu</div></div></div>
+        <div class="pd-row" style="border:0"><span class="pd-th"></span><div><div class="pd-tt">Naturalne składniki, które wspierają regenerację chrząstki stawowej</div><div class="pd-mt">Styl życia &middot; 3 dni temu</div></div></div>
+      </div>
+
       <!-- COMMENTS SECTION -->
       <object type="image/svg+xml" data="loader.svg" style="position: absolute; visibility: hidden"></object>
       <div class="comments comments-fb" id="pluginComments">
@@ -1302,7 +1411,7 @@
         <div class="comments__item-list">
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/7da17fc86c6c_2f1260d0.jpg">
+              <img alt="" class="comments__item-avatar" src="images/7da17fc86c6c_2f1260d0.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Anna Wiśniewska</p>
                 <p class="startdate">
@@ -1330,7 +1439,7 @@
           <div id="first-comment">
             <div class="comments__item">
               <div class="comments__item-header">
-                <img alt="" class="comments__item-avatar" loading="lazy" src="images/8ba73d45c164_4ede289a.jpg">
+                <img alt="" class="comments__item-avatar" src="images/8ba73d45c164_4ede289a.jpg">
                 <div class="comments__item-info">
                   <p class="comments__item-name">Katarzyna Kamińska</p>
                   <p class="startdate">
@@ -1357,7 +1466,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/fa7f61c1431c_7946ff6c.jpg">
+              <img alt="" class="comments__item-avatar" src="images/fa7f61c1431c_7946ff6c.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Barbara Zielińska</p>
                 <p class="startdate">
@@ -1383,7 +1492,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/dcc5cfe80d60_5aa7f8f7.jpg">
+              <img alt="" class="comments__item-avatar" src="images/dcc5cfe80d60_5aa7f8f7.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Tomasz Lewandowski</p>
                 <p class="startdate">
@@ -1406,7 +1515,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/bcbe20e0b5d2_b241da99.jpg">
+              <img alt="" class="comments__item-avatar" src="images/bcbe20e0b5d2_b241da99.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Krzysztof Wójcik</p>
                 <p class="startdate">
@@ -1428,7 +1537,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/73d3a879cef9_4a9ce85c.jpg">
+              <img alt="" class="comments__item-avatar" src="images/73d3a879cef9_4a9ce85c.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Małgorzata Szymańska</p>
                 <p class="startdate">
@@ -1451,7 +1560,7 @@
           <div class="comm-obert-reply">
             <div class="comments__item reply">
               <div class="comments__item-header">
-                <img alt="" class="comments__item-avatar" loading="lazy" src="images/71deaf909b4e_ea30d07c.jpg">
+                <img alt="" class="comments__item-avatar" src="images/71deaf909b4e_ea30d07c.jpg">
                 <div class="comments__item-info">
                   <p class="comments__item-name">Ewa Jankowska</p>
                   <p class="startdate">
@@ -1477,7 +1586,7 @@
           <div class="comm-obert-reply">
             <div class="comments__item reply">
               <div class="comments__item-header">
-                <img alt="" class="comments__item-avatar" loading="lazy" src="images/66ebad51123a_206d5fba.png">
+                <img alt="" class="comments__item-avatar" src="images/66ebad51123a_206d5fba.png">
                 <div class="comments__item-info">
                   <p class="comments__item-name">Stanisław Mazur</p>
                   <p class="startdate">
@@ -1501,7 +1610,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/d61700bc0961_28c03d39.jpg">
+              <img alt="" class="comments__item-avatar" src="images/d61700bc0961_28c03d39.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Dorota Krawczyk</p>
                 <p class="startdate">
@@ -1523,7 +1632,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/7db2eed8e880_6ecfd92a.jpg">
+              <img alt="" class="comments__item-avatar" src="images/7db2eed8e880_6ecfd92a.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Teresa Pawlak</p>
                 <p class="startdate">
@@ -1547,7 +1656,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/a49c7ec0724d_6f186c1c.jpg">
+              <img alt="" class="comments__item-avatar" src="images/a49c7ec0724d_6f186c1c.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Henryk Dąbrowski</p>
                 <p class="startdate">
@@ -1570,7 +1679,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/7099c502f996_b89c4cc9.jpg">
+              <img alt="" class="comments__item-avatar" src="images/7099c502f996_b89c4cc9.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Zbigniew Grabowski</p>
                 <p class="startdate">
@@ -1594,7 +1703,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/47a8cb9cf088_09555b8e.jpg">
+              <img alt="" class="comments__item-avatar" src="images/47a8cb9cf088_09555b8e.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Agnieszka Pawlak</p>
                 <p class="startdate">
@@ -1616,7 +1725,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/f021e0a36f8b_7c282874.jpg">
+              <img alt="" class="comments__item-avatar" src="images/f021e0a36f8b_7c282874.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Jolanta Michalska</p>
                 <p class="nowdate">
@@ -1638,7 +1747,7 @@
 
           <div class="comments__item">
             <div class="comments__item-header">
-              <img alt="" class="comments__item-avatar" loading="lazy" src="images/d770c7a4cbdf_467ee117.jpg">
+              <img alt="" class="comments__item-avatar" src="images/d770c7a4cbdf_467ee117.jpg">
               <div class="comments__item-info">
                 <p class="comments__item-name">Piotr Zawadzki</p>
                 <p class="nowdate">
@@ -1680,36 +1789,20 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="container" bis_skin_checked="1" style="
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 14px;
-        ">
-        <div class="clinical-footer" style="margin: 20px 0 0 0">
-          © ZdrowieInfo Polska, reportaż specjalny<br>
-          Dane prezentowane na tej stronie mają charakter informacyjny i nie
-          zastępują konsultacji lekarskiej.
+    <footer>
+      <div class="pd-foot">
+        <span class="pd-logo"><span class="pd-mk"><svg viewBox="0 0 24 24"><use href="#pd-pulse"/></svg></span><span class="pd-wm">PULS<em style="color:var(--pd-red)">DNIA</em></span></span>
+        <div class="pd-disc">
+          Artykuł sponsorowany. Materiał partnera. Treść ma charakter informacyjny i nie zastępuje porady lekarskiej.<br>
+          * Ten materiał reklamowy opiera się na fikcji literackiej. Wszelkie odniesienia do istniejących osób i miejsc są przypadkowe.<br>
+          * Reklamowany produkt nie jest produktem leczniczym. Nie służy do diagnozowania, łagodzenia, zapobiegania ani leczenia chorób.<br>
+          &copy; 2005-<script>document.write(new Date().getFullYear())</script> Puls Dnia.
         </div>
-        <rekv>Copyright (2005-<span><script>
-              document.write(new Date().getFullYear());
-            </script></span>)</rekv>
-        <br>
-        <p>
-          * Ten materiał reklamowy opiera się na fikcji literackiej. Wszelkie odniesienia do
-          istniejących osób i miejsc są przypadkowe.
-        </p>
-        <p>
-          * Reklamowany produkt nie jest produktem leczniczym. Nie służy do
-          diagnozowania, łagodzenia, zapobiegania ani leczenia chorób.
-        </p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-bottom: 20px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px">
           <a href="#" modal="polit">Polityka prywatności</a>
-          <span>|</span>
+          <span style="color:#555">|</span>
           <a href="#" modal="agreement">Regulamin</a>
-          <span>|</span>
+          <span style="color:#555">|</span>
           <a href="#" modal="disclaimer">Informacja o charakterze reklamowym</a>
         </div>
       </div>
@@ -1870,4 +1963,5 @@
   tick(); setInterval(tick, 1000);
 })();
 </script>
+<script>(function(){var d=new Date(),h=d.getHours(),m=d.getMinutes();var el=document.getElementById("pd-clk");if(el)el.textContent=(h<10?"0":"")+h+":"+(m<10?"0":"")+m;})();</script>
 </body></html>
