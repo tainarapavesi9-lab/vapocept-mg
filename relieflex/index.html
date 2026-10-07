@@ -1289,6 +1289,9 @@
       <br>
 
       <div style="max-width: 420px; margin: 0 auto 16px; padding: 16px 18px; border: 2px solid #d62828; border-radius: 10px; background: #fff7f5; text-align: center; font-size: 18px; line-height: 1.5;">
+        <div style="font-size: 15px; margin-bottom: 8px">Do końca promocji pozostało:</div>
+        <div id="rf-timer" style="font-size: 30px; font-weight: bold; color: #d62828; letter-spacing: 2px; margin-bottom: 8px">00:15:00</div>
+        <div style="font-size: 15px; margin-bottom: 10px">Zostało tylko <b id="rf-stock">27</b> promocyjnych opakowań</div>
         Cena regularna: <s style="color: #777">194 zł</s><br>
         Dziś: <b style="color: #d62828; font-size: 26px">97 zł</b> <b>(-50%)</b><br>
         <span style="font-size: 16px">Płatność przy odbiorze</span>
@@ -1864,4 +1867,20 @@
 
 
 
+<script>
+(function () {
+  try {
+    var KEY = "rf_end", now = Date.now(), end = parseInt(localStorage.getItem(KEY) || "0", 10);
+    if (!end || end < now) { end = now + 15 * 60 * 1000; localStorage.setItem(KEY, String(end)); }
+  } catch (e) { var end = Date.now() + 15 * 60 * 1000; }
+  var t = document.getElementById("rf-timer");
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function tick() {
+    var left = Math.max(0, Math.floor((end - Date.now()) / 1000));
+    if (t) t.textContent = pad(Math.floor(left / 3600)) + ":" + pad(Math.floor((left % 3600) / 60)) + ":" + pad(left % 60);
+    if (left === 0) { try { localStorage.removeItem("rf_end"); } catch (e) {} end = Date.now() + 15 * 60 * 1000; }
+  }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
 </body></html>
