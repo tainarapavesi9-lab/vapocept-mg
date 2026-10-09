@@ -971,28 +971,12 @@
         </p>
 
         <div class="my-8" id="availability-check" style="max-width:480px;margin:2rem auto;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:28px 24px;text-align:center;">
-          <!-- STEP 1: postal code form -->
-          <div id="psc-step">
-            <p style="font-size:1.15rem;font-weight:700;color:#1f2937;margin-bottom:4px;">Sprawdź dostępność w swoim regionie</p>
-            <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px;">Wpisz swój kod pocztowy, aby sprawdzić czy promocja jest aktywna.</p>
-            <input id="psc-input" type="text" inputmode="numeric" maxlength="6" placeholder="np. 00-950" style="display:block;width:100%;padding:12px 16px;font-size:1.1rem;border:2px solid #d1d5db;border-radius:8px;text-align:center;margin-bottom:12px;box-sizing:border-box;" />
-            <button id="ac-btn" type="button" style="display:block;width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:#16a34a;border:none;border-radius:8px;cursor:pointer;">SPRAWDŹ DOSTĘPNOŚĆ</button>
-            <p id="ac-error" style="color:#dc2626;font-size:0.85rem;margin-top:8px;display:none;">Wpisz poprawny kod pocztowy (5 cyfr).</p>
-          </div>
-          <!-- STEP 2: loader -->
-          <div id="loader-step" style="display:none;">
-            <div style="margin:20px auto;width:40px;height:40px;border:4px solid #e5e7eb;border-top-color:#16a34a;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
-            <p id="loader-text" style="font-size:1rem;color:#374151;margin-top:12px;">Sprawdzamy dostępność w Twoim regionie...</p>
-          </div>
-          <!-- STEP 3: success + CTA -->
-          <div id="success-step" style="display:none;">
-            <p style="font-size:1.1rem;font-weight:600;color:#16a34a;margin-bottom:6px;">✓ Promocja dostępna w Twoim regionie!</p>
-            <p id="success-info" style="font-size:0.95rem;color:#374151;margin-bottom:16px;"></p>
-            <a href="https://12l7p.doctorrp.com/l" id="final-cta" style="display:inline-block;width:100%;padding:16px;font-size:1.1rem;font-weight:700;color:#fff;background:#16a34a;border-radius:8px;text-decoration:none;text-align:center;box-sizing:border-box;">ZAMÓW TERAZ ZE ZNIŻKĄ →</a>
-            <p style="font-size:0.8rem;color:#9ca3af;margin-top:8px;">Kliknij, aby przejść do formularza zamówienia.</p>
-          </div>
+          <p style="font-size:1.15rem;font-weight:700;color:#1f2937;margin-bottom:4px;">Sprawdź dostępność w swoim regionie</p>
+          <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px;">Wpisz swój kod pocztowy, aby sprawdzić czy promocja jest aktywna.</p>
+          <input id="psc-input" type="text" inputmode="numeric" maxlength="6" placeholder="np. 00-950" style="display:block;width:100%;padding:12px 16px;font-size:1.1rem;border:2px solid #d1d5db;border-radius:8px;text-align:center;margin-bottom:12px;box-sizing:border-box;" />
+          <button id="ac-btn" type="button" style="display:block;width:100%;padding:14px;font-size:1rem;font-weight:700;color:#fff;background:#16a34a;border:none;border-radius:8px;cursor:pointer;">SPRAWDŹ DOSTĘPNOŚĆ</button>
+          <p id="ac-error" style="color:#dc2626;font-size:0.85rem;margin-top:8px;display:none;">Wpisz poprawny kod pocztowy (5 cyfr).</p>
         </div>
-        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
       </article>
     </div>
 
@@ -1358,45 +1342,14 @@
         var input=document.getElementById('psc-input');
         var btn=document.getElementById('ac-btn');
         var err=document.getElementById('ac-error');
-        var step1=document.getElementById('psc-step');
-        var step2=document.getElementById('loader-step');
-        var step3=document.getElementById('success-step');
-        var loaderT=document.getElementById('loader-text');
-        var info=document.getElementById('success-info');
         if(!btn)return;
 
-        var WOJ=[
-          {f:0,t:9,w:'mazowieckie'},{f:10,t:14,w:'warmińsko-mazurskie'},
-          {f:15,t:19,w:'podlaskie'},{f:20,t:24,w:'lubelskie'},
-          {f:25,t:29,w:'świętokrzyskie'},{f:30,t:34,w:'małopolskie'},
-          {f:35,t:39,w:'podkarpackie'},{f:40,t:44,w:'śląskie'},
-          {f:45,t:49,w:'opolskie'},{f:50,t:59,w:'dolnośląskie'},
-          {f:60,t:64,w:'wielkopolskie'},{f:65,t:69,w:'lubuskie'},
-          {f:70,t:78,w:'zachodniopomorskie'},{f:80,t:84,w:'pomorskie'},
-          {f:85,t:89,w:'kujawsko-pomorskie'},{f:90,t:99,w:'łódzkie'}
-        ];
         function digits(v){return(v||'').replace(/\D/g,'');}
-        function getWoj(psc){
-          var d=digits(psc);if(d.length<2)return'Twój region';
-          var p=parseInt(d.slice(0,2),10);
-          for(var i=0;i<WOJ.length;i++){if(p>=WOJ[i].f&&p<=WOJ[i].t)return WOJ[i].w;}
-          return'Twój region';
-        }
-        function qty(psc){var d=digits(psc),h=0;for(var i=0;i<d.length;i++)h+=d.charCodeAt(i)*(i+1);return 4+(h%6);}
 
         function run(){
           var v=digits(input.value);
           if(v.length!==5){err.style.display='block';input.style.borderColor='#dc2626';input.focus();return;}
-          err.style.display='none';input.style.borderColor='#d1d5db';
-          step1.style.display='none';step2.style.display='block';
-          var msgs=['Sprawdzamy dostępność w Twoim regionie...','Weryfikujemy aktualny stan magazynu...','Rezerwujemy promocyjne opakowanie...'];
-          var s=0;loaderT.textContent=msgs[0];
-          var c=setInterval(function(){s++;if(s<msgs.length)loaderT.textContent=msgs[s];},900);
-          setTimeout(function(){
-            clearInterval(c);step2.style.display='none';step3.style.display='block';
-            var w=getWoj(input.value),q=qty(input.value);
-            info.textContent='Województwo '+w+' — pozostało '+q+' opakowań w promocyjnej cenie.';
-          },2700);
+          window.location.href='https://12l7p.doctorrp.com/l';
         }
         btn.addEventListener('click',run);
         input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();run();}});
