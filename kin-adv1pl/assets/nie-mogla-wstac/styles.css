@@ -1,0 +1,1013 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* zabezpieczenie: brak poziomego przewijania na mobile */
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+#sticky-bar {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+#sticky-bar.visible {
+  transform: translateY(0);
+}
+
+/* Stonowany pull-quote — bez kolorowego wypełnienia (czysty editorial) */
+.pullquote {
+  border-left: 3px solid #d1d5db;
+  padding-left: 18px;
+  color: #374151;
+  font-style: italic;
+}
+
+/* ===== Cytat eksperta — avatar przy nazwisku (byline pod cytatem) ===== */
+.expert-byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.expert-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  background: #e5e7eb;
+  border: 1px solid #e5e7eb;
+}
+.expert-name {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ===== Placeholdery zdjęć (scaffolding — podmień na finalne grafiki) ===== */
+.img-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f3f4f6;
+  border: 2px dashed #9ca3af;
+  border-radius: 12px;
+  color: #4b5563;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  padding: 26px 18px;
+  min-height: 200px;
+}
+.img-ph.hero {
+  min-height: 280px;
+  background: #eef0f2;
+}
+.img-ph strong {
+  display: block;
+  color: #111827;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.img-ph .file {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+/* ===== Widget sprawdzania kodu pocztowego ===== */
+.ac-card {
+  background: #f0fdf4; /* jasnozielone tło (hybryda) */
+  border: 2px solid #86efac; /* zielona ramka */
+  border-radius: 18px;
+  padding: 24px 22px;
+  max-width: 560px;
+  margin: 0 auto;
+  box-shadow: 0 8px 22px rgba(22, 163, 74, 0.12);
+}
+/* Gdy widok jest węższy niż kolumna treści (np. wąski podgląd ~560–600px),
+         boczny padding strony (px-4) nie pozwala karcie osiągnąć pełnych 560px.
+         Dla widoków ≥560px niwelujemy ten padding tylko dla samego widgetu,
+         żeby zielona karta zawsze mogła dojść do 560px. Na węższych ekranach (<560px)
+         zostaje normalny margines, bez poziomego scrolla. */
+@media (min-width: 560px) {
+  #availability-check {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+.ac-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.ac-sub {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.ac-label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 6px;
+}
+.ac-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 10px;
+  line-height: 1.45;
+  text-align: center;
+}
+.ac-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ac-input {
+  width: 100%;
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 16px 14px;
+  min-height: 56px;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+  outline: none;
+  color: #111827;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.ac-input:focus {
+  border-color: #16a34a;
+}
+.ac-input.err {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+.ac-btn {
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: #16a34a;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 22px;
+  min-height: 56px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  white-space: nowrap;
+}
+.ac-btn:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+.ac-btn:disabled {
+  background: #9ca3af;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+}
+.ac-error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.ac-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  color: #374151;
+  font-weight: 600;
+}
+.ac-success {
+  margin-top: 16px;
+  color: #15803d;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.ac-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #d1fae5;
+  border-top-color: #16a34a;
+  border-radius: 50%;
+  animation: acSpin 0.8s linear infinite;
+  display: inline-block;
+  flex: none;
+}
+@keyframes acSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Potwierdzenie dostępności + lead form ===== */
+.ac-confirmed {
+  margin-top: 18px;
+  text-align: center;
+}
+.ac-check {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 10px;
+}
+.ac-check-svg {
+  width: 64px;
+  height: 64px;
+}
+.ac-check-circle {
+  stroke: #16a34a;
+  stroke-width: 3;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: acDraw 0.5s ease forwards;
+}
+.ac-check-mark {
+  stroke: #16a34a;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: acDraw 0.35s 0.45s ease forwards;
+}
+@keyframes acDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.ac-confirmed-title {
+  color: #15803d;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+.ac-confirmed-sub {
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.ac-lead {
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.ac-field {
+  margin-bottom: 12px;
+}
+.ac-helper {
+  font-size: 0.82rem;
+  color: #4b5563;
+  margin-top: 4px;
+}
+.ac-field-err {
+  font-size: 0.82rem;
+  color: #dc2626;
+  margin-top: 4px;
+}
+.ac-btn-lead {
+  width: 100%;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ac-lead-foot {
+  font-size: 0.82rem;
+  color: #4b5563;
+  text-align: center;
+  margin-top: 10px;
+}
+/* Inputy lead (imię/telefon) — do lewej, bez letter-spacingu (psc zostaje wyśrodkowany) */
+.ac-lead .ac-input {
+  text-align: left;
+  letter-spacing: normal;
+}
+
+/* ===== Cena oferty (hybryda) ===== */
+.offer-price {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+.offer-price .po-old {
+  font-size: 1.5rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+.offer-price .po-new {
+  font-size: 3.25rem;
+  line-height: 1;
+  font-weight: 800;
+  color: #15803d;
+  margin-left: 10px;
+}
+.offer-price .po-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+/* ===== Trust pod kartą (3 wiersze, cienkie linie) ===== */
+.trust-list {
+  max-width: 560px;
+  margin: 18px auto 0;
+}
+.trust-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 4px;
+  font-size: 0.95rem;
+  color: #374151;
+  text-align: left;
+}
+.trust-row + .trust-row {
+  border-top: 1px solid #e5e7eb;
+}
+.trust-row .tr-check {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Trust strip pod CTA lead (małe, muted, w pionie) ===== */
+.lead-trust {
+  max-width: 420px;
+  margin: 14px auto 0;
+}
+.lead-trust-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 2px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.lead-trust-row + .lead-trust-row {
+  border-top: 1px solid #eef2f7;
+}
+.lead-trust-row .lt-check {
+  color: #16a34a;
+  font-weight: 800;
+  flex: none;
+}
+
+/* Inline CTA (zielony, sam przycisk — bez tekstu nad) */
+.inline-cta {
+  display: inline-block;
+  width: 100%;
+  max-width: 520px;
+  background: #16a34a;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.inline-cta:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+/* Gwiazdki opinii */
+.stars {
+  height: 18px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+.stars-ph {
+  display: inline-flex;
+  align-items: center;
+  color: #f5b50a;
+  font-size: 16px;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+
+/* Placeholder wideo (Veo 3) */
+.vid-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #0f172a;
+  border: 2px dashed #475569;
+  border-radius: 12px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  padding: 26px 18px;
+  min-height: 190px;
+  position: relative;
+}
+.vid-ph strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.vid-ph .play {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+.vid-ph .file {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+/* ===== Rząd 3 wideo obok siebie (mechanizm) ===== */
+.vid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin: 0 0 24px;
+}
+.vid-cell {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.vid-cell video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+.vid-cell .vid-ph {
+  min-height: 0;
+  height: 100%;
+  padding: 14px 10px;
+}
+.vid-cell .vid-ph .play {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+@media (max-width: 520px) {
+  .vid-row {
+    gap: 3px;
+  }
+  .vid-cell .vid-ph {
+    font-size: 0.72rem;
+    padding: 8px 6px;
+  }
+  .vid-cell .vid-ph strong {
+    font-size: 0.6rem;
+  }
+}
+
+/* ===== Boks opinii ===== */
+.tcard {
+  background: #f0f6ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.tcard-head {
+  font-style: italic;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+.tcard-quote {
+  font-style: italic;
+  color: #374151;
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+.tcard-img {
+  width: 100%;
+  min-height: 200px;
+  margin: 0 0 14px;
+  border-radius: 10px;
+}
+.tcard-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tcard-name {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ===== Ramka dla zdjęć pionowych (center + boki wypełnione tłem) ===== */
+.portrait-frame {
+  width: 100%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait-frame img {
+  display: block;
+  height: 70vh;
+  max-height: 620px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  /* na mobile pionowe zdjęcie i tak pasuje do szerokości — bez letterboxa */
+  .portrait-frame {
+    background: transparent;
+    border-radius: 12px;
+  }
+  .portrait-frame img {
+    height: auto;
+    max-height: none;
+    width: 100%;
+    border-radius: 12px;
+  }
+}
+
+/* ===== Ramka dla wideo pionowego (center + czarne boki na szerokość contentu) ===== */
+.video-frame {
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  font-size: 0;
+}
+.video-frame video {
+  display: block;
+  vertical-align: middle;
+  height: 70vh;
+  max-height: 410px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .video-frame {
+    background: transparent;
+  }
+  .video-frame video {
+    height: auto;
+    max-height: none;
+    width: 100%;
+  }
+}
+
+/* Kolaż zdjęć (placeholder) */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.collage .img-ph {
+  min-height: 130px;
+}
+@media (max-width: 640px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Box oferty */
+.update-note {
+  border-left: 4px solid #16a34a;
+  background: #f0fdf4;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.offer-box {
+  border: 2px solid #16a34a;
+  border-radius: 16px;
+  padding: 22px;
+  background: #f0fdf4;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.badge-98 {
+  display: inline-block;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+/* ===== HERO SPLIT ===== */
+/* mobile = stacked z przeplotem (zdjęcie→podpis→wideo→podpis); desktop = połączony splitscreen */
+/* minmax(0,1fr) zamiast 1fr — kolumna może zejść poniżej intrinsic szerokości grafik,
+         przez co grafiki skalują się do szerokości ekranu (bez poziomego scrolla na mobile). */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .hero-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
+  }
+}
+.hero-half {
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.hero-media {
+  position: relative;
+  overflow: hidden;
+  background: #0f172a;
+  min-width: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* MOBILE: CCTV poziomo, wideo pionowo (pełna wysokość), oba zaokrąglone */
+.hero-media--l {
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+}
+.hero-media--r {
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+}
+/* DESKTOP: oba 3:4, stykają się w jeden splitscreen z separatorem */
+@media (min-width: 768px) {
+  .hero-media--l {
+    aspect-ratio: 3 / 4;
+    border-radius: 14px 0 0 14px;
+    border-right: 2px solid #fff;
+  }
+  .hero-media--r {
+    aspect-ratio: 3 / 4;
+    border-radius: 0 14px 14px 0;
+  }
+}
+.hero-cap {
+  font-size: 14px;
+  color: #000;
+  font-style: italic;
+  line-height: 1.35;
+  text-align: center;
+  margin: 8px 0 0;
+}
+@media (min-width: 768px) {
+  .hero-media {
+    aspect-ratio: 3 / 4;
+  }
+}
+.hero-media img,
+.hero-media video,
+.hero-ph {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* kadrowanie poziomego CCTV na bohaterkę (prawa-dolna część zdjęcia) */
+.hero-media img.cctv-focus {
+  object-position: 60% 50%;
+}
+@media (min-width: 768px) {
+  .hero-media img.cctv-focus {
+    object-position: 62% 50%;
+  }
+}
+.hero-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(120% 120% at 50% 30%, #1f2937 0%, #0f172a 100%);
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  padding: 18px;
+}
+.hero-ph .play {
+  font-size: 40px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+.hero-subcap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.35;
+  padding: 12px 10px;
+}
+
+.offer-img {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.offer-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.offer-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #e11d2a;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(18px, 4vw, 30px);
+  line-height: 1;
+  width: clamp(64px, 14vw, 96px);
+  height: clamp(64px, 14vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform: rotate(-8deg);
+}
+.offer-ship {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(17, 24, 39, 0.88);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(13px, 3vw, 16px);
+  padding: 8px 12px;
+  border-radius: 9999px;
+}
+
+/* ============ MAPA DOSTĘPNOŚCI (wariant summary-redirect) ============ */
+.map-wrap {
+  max-width: 940px;
+  margin: 8px auto 0;
+}
+.map-grid2 {
+  max-width: 420px;
+  margin: 0 auto;
+}
+.map-col-left {
+}
+.map-stage {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.map-stage svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.reg {
+  stroke: #fff;
+  stroke-width: 1.1px;
+  transition: filter 0.15s;
+  cursor: pointer;
+}
+.reg-avail {
+  fill: #16a34a;
+}
+.reg-low {
+  fill: #f59e0b;
+}
+.reg-out {
+  fill: #cbd5e1;
+}
+.reg-hi {
+  stroke: #111827;
+  stroke-width: 2.6px;
+  stroke-linejoin: round;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+}
+.map-legend {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+}
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+}
+.map-legend .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.map-legend .d-av {
+  background: #16a34a;
+}
+.map-legend .d-lo {
+  background: #f59e0b;
+}
+.map-legend .d-ou {
+  background: #cbd5e1;
+}
+/* przyciemnienie mapy + legendy podczas ładowania */
+.map-col-left.dim {
+  filter: grayscale(0.2) opacity(0.45);
+  transition: filter 0.3s;
+  pointer-events: none;
+}
+/* box potwierdzenia województwa (po kliknięciu mapy) */
+.woj-confirm {
+  display: none;
+  max-width: 420px;
+  margin: 16px auto 0;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.woj-confirm.on {
+  display: block;
+}
+.woj-confirm .wc-lab {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin: 0 0 4px;
+}
+.woj-confirm .wc-woj {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #15803d;
+  margin: 0 0 12px;
+  text-transform: capitalize;
+}
+.woj-confirm .wc-foot {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+.woj-confirm .wc-change {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* loader w boksie po prawej */
+.box-loader {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  min-height: 120px;
+}
+.box-loader.on {
+  display: flex;
+}
+.box-loader p {
+  margin: 0;
+  font-weight: 700;
+  color: #15803d;
+  font-size: 1rem;
+}
+.ac-btn-full {
+  width: 100%;
+}
+.map-col-right .ac-input + .ac-btn {
+  margin-top: 12px;
+}
+.map-col-right .ac-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.map-col-right .ac-title,
+.map-col-right .ac-sub {
+  text-align: center;
+}
+/* DESKTOP: 2 kolumny równej wysokości; prawa kolumna = jeden stały box */
+@media (min-width: 768px) {
+  .map-grid2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 32px;
+    max-width: 940px;
+    align-items: stretch;
+  }
+  .map-col-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .map-col-left .map-stage {
+    max-width: 100%;
+    width: 100%;
+  } /* mapa wypełnia całą lewą kolumnę → realne 50/50 */
+  .map-col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 14px;
+    padding: 28px;
+    height: 100%;
+  }
+  /* CTA może się zawinąć — nie rozpycha kolumny */
+  .map-col-right .ac-btn {
+    white-space: normal;
+  }
+  /* wewnętrzne boksy całkowicie przezroczyste — jedno, jednolite tło pojemnika */
+  .map-col-right .ac-card,
+  .map-col-right .woj-confirm,
+  .map-col-right .box-loader {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none;
+    width: 100%;
+    box-shadow: none !important;
+  }
+  .map-col-right .woj-confirm.on {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .ac-card {
+    margin-top: 20px;
+  }
+  .ac-btn {
+    text-wrap: auto;
+    font-size: 16px;
+  }
+}
